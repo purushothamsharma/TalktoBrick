@@ -1,0 +1,60 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - good morning
+    - good evening
+    - hey there
+    - hi there
+    - greetings
+    - hola
+    - buenos días
+    - buenas tardes
+    - namaste
+
+- intent: order_food
+  examples: |
+    - I want to order [steak](food_item)
+    - bring me [sushi](food_item)
+    - I'll have the [pasta](food_item)
+    - can I get [2](quantity) [tacos](food_item)
+    - quiero [tacos](food_item) por favor
+    - me gustaría ordenar [paella](food_item)
+    - quisiera [2](quantity) [burritos](food_item)
+    - I'd like the [salmon](food_item)
+    - let me try the [risotto](food_item)
+
+- intent: customize_order
+  examples: |
+    - make it [spicy](customization)
+    - [medium rare](customization) please
+    - can you make it [gluten free](dietary_restriction)
+    - [sin cebolla](customization) por favor
+    - [extra cheese](customization) on top
+    - [well done](customization) temperature
+    - [poco picante](customization)
+    - [dairy free](dietary_restriction) option
+
+- intent: ask_price
+  examples: |
+    - how much is the [wagyu](food_item)?
+    - what's the price of [wine](food_item)?
+    - cuánto cuesta el [pescado](food_item)?
+    - precio del [vino](food_item)
+    - cost of the [tasting menu](food_item)
+    - price for [2](quantity) [steaks](food_item)
+
+- intent: give_feedback
+  examples: |
+    - the food was amazing
+    - service was excellent
+    - la comida estaba deliciosa
+    - el servicio fue excelente
+    - too spicy for me
+    - perfect temperature
+    - wine pairing was spot on
+    - beautiful presentation

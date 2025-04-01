@@ -1,0 +1,18 @@
+{
+  "categories": [
+    {
+      "name": "Starters",
+      "items": [
+        { "name": "Spring Rolls", "price": "$4.99", "description": "Crispy rolls with veggies" },
+        { "name": "Garlic Bread", "price": "$3.49", "description": "Toasted bread with garlic butter" }
+      ]
+    },
+    {
+      "name": "Main Course",
+      "items": [
+        { "name": "Margherita Pizza", "price": "$9.99", "description": "Classic with tomato & basil" },
+        { "name": "Pasta Alfredo", "price": "$11.49", "description": "Creamy white sauce pasta" }
+      ]
+    }
+  ]
+}

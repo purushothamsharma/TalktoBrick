@@ -1,0 +1,98 @@
+version: "3.1"
+
+stories:
+- story: Fine Dining Experience
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_recommendations
+  - action: action_show_recommendations
+  - intent: order_food
+    entities:
+    - food_item: "steak"
+  - action: action_process_order
+  - intent: customize_order
+    entities:
+    - customization: "medium rare"
+  - action: action_customize_order
+  - intent: ask_price
+  - action: action_show_price
+  - intent: affirm
+  - action: action_confirm_order
+
+- story: Wine Pairing Journey
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_recommendations
+  - action: action_show_recommendations
+  - intent: order_food
+    entities:
+    - food_item: "salmon"
+  - action: action_process_order
+  - intent: customize_order
+    entities:
+    - customization: "wine pairing"
+  - action: action_suggest_wine
+  - intent: affirm
+  - action: action_confirm_order
+
+- story: Dietary Restrictions Handling
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: request_vegan_option
+  - action: action_show_vegan_options
+  - intent: ask_ingredients
+  - action: action_show_ingredients
+  - intent: order_food
+  - action: action_process_order
+  - intent: ask_price
+  - action: action_show_price
+  - intent: affirm
+  - action: action_confirm_order
+
+- story: Special Occasion Dining
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: make_reservation
+    entities:
+    - occasion: "anniversary"
+  - action: action_handle_reservation
+  - intent: ask_recommendations
+  - action: action_show_recommendations
+  - intent: order_food
+  - action: action_process_order
+  - intent: customize_order
+    entities:
+    - customization: "special presentation"
+  - action: action_customize_order
+
+- story: Tasting Menu Experience
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_recommendations
+  - action: action_show_recommendations
+  - intent: order_food
+    entities:
+    - food_item: "tasting menu"
+  - action: action_process_order
+  - intent: customize_order
+    entities:
+    - customization: "wine pairing"
+  - action: action_suggest_wine
+  - intent: affirm
+  - action: action_confirm_order
+
+- story: Feedback and Service Recovery
+  steps:
+  - intent: give_feedback
+  - action: utter_thank_feedback
+  - intent: track_order
+  - action: action_track_order
+  - intent: give_feedback
+  - action: action_handle_feedback
+  - intent: request_vegan_option
+  - action: action_show_vegan_options

@@ -1,0 +1,97 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - order_food
+  - customize_order
+  - ask_ingredients
+  - ask_spicy
+  - request_vegan_option
+  - ask_price
+  - track_order
+  - give_feedback
+  - make_reservation
+  - ask_recommendations
+
+entities:
+  - food_item
+  - quantity
+  - customization
+  - dietary_restriction
+  - ingredient
+  - cuisine_type
+  - spice_level
+  - party_size
+  - date
+  - occasion
+  - wine_type
+  - price_range
+
+slots:
+  ordered_items:
+    type: list
+    influence_conversation: true
+  current_cuisine:
+    type: text
+    influence_conversation: true
+  dietary_preferences:
+    type: list
+    influence_conversation: true
+  spice_preference:
+    type: text
+    influence_conversation: true
+  wine_preference:
+    type: text
+    influence_conversation: true
+  occasion:
+    type: text
+    influence_conversation: true
+  party_size:
+    type: text
+    influence_conversation: true
+  reservation_date:
+    type: text
+    influence_conversation: true
+  language:
+    type: text
+    influence_conversation: true
+
+responses:
+  utter_greet:
+    - text: "Welcome to Brick! I'm your personal dining concierge. How may I assist you today?"
+    - text: "¡Bienvenidos a Brick! I'm here to guide you through our culinary journey. What interests you?"
+    - text: "Namaste! I'm your AI host at Brick. Shall we explore our menu together?"
+
+  utter_goodbye:
+    - text: "Thank you for dining with us. We look forward to serving you again!"
+    - text: "¡Gracias por su visita! We hope to welcome you back soon."
+    - text: "Farewell! Your satisfaction is our greatest reward."
+
+  utter_ask_preferences:
+    - text: "Do you have any dietary preferences or restrictions I should know about?"
+    - text: "Would you like to hear about our chef's recommendations?"
+    - text: "May I suggest a wine pairing with your selection?"
+
+  utter_confirm_order:
+    - text: "I've noted your preferences. Would you like to proceed with the order?"
+    - text: "Excellent choice! Shall we confirm your selection?"
+    - text: "Your curated dining experience awaits. Ready to proceed?"
+
+actions:
+  - action_process_order
+  - action_customize_order
+  - action_show_ingredients
+  - action_show_vegan_options
+  - action_show_price
+  - action_track_order
+  - action_handle_feedback
+  - action_show_recommendations
+  - action_suggest_wine
+  - action_handle_reservation
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

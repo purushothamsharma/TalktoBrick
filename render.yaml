@@ -1,0 +1,54 @@
+services:
+  # Rasa Pro Service
+  - type: web
+    name: brick-rasa-pro
+    env: docker
+    dockerfilePath: ./rasa-brick/Dockerfile
+    envVars:
+      - key: RASA_MODEL_SERVER
+        sync: false
+      - key: RASA_MODEL_TOKEN
+        sync: false
+      - key: RASA_DB_URL
+        sync: false
+      - key: REDIS_URL
+        sync: false
+      - key: RABBITMQ_URL
+        sync: false
+    healthCheckPath: /health
+    autoDeploy: true
+
+  # Rasa Actions Service  
+  - type: web
+    name: brick-rasa-actions
+    env: docker
+    dockerfilePath: ./rasa-brick/Dockerfile.actions
+    envVars:
+      - key: RASA_DB_URL
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+    healthCheckPath: /health
+    autoDeploy: true
+
+  # Frontend Service
+  - type: web
+    name: brick-frontend
+    env: static
+    buildCommand: npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: VITE_SUPABASE_URL
+        sync: false
+      - key: VITE_SUPABASE_ANON_KEY
+        sync: false
+      - key: VITE_OPENAI_API_KEY
+        sync: false
+      - key: VITE_RASA_SERVER_URL
+        value: https://brick-rasa-pro.onrender.com
+      - key: VITE_RASA_TOKEN
+        sync: false
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

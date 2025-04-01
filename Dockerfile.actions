@@ -1,0 +1,11 @@
+FROM rasa/rasa-sdk:3.6.2
+
+# Copy actions module
+COPY actions /app/actions
+
+# Install additional dependencies
+COPY requirements.txt /app/
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Command to run the action server
+CMD ["start", "--actions", "actions"]

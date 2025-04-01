@@ -1,0 +1,27 @@
+models:
+  url: ${RASA_MODEL_SERVER}
+  token: ${RASA_MODEL_TOKEN}
+  wait_time_between_pulls: 10
+
+action_endpoint:
+  url: "http://localhost:5055/webhook"
+
+tracker_store:
+  type: sql
+  dialect: "postgresql"
+  url: ${RASA_DB_URL}
+  db: "rasa"
+  username: ${RASA_DB_USER}
+  password: ${RASA_DB_PASSWORD}
+
+lock_store:
+  type: "redis"
+  url: ${REDIS_URL}
+  key_prefix: "lock"
+  
+event_broker:
+  type: "pika"
+  url: ${RABBITMQ_URL}
+  username: ${RABBITMQ_USER}
+  password: ${RABBITMQ_PASSWORD}
+  queue: "rasa_events"

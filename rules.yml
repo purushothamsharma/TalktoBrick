@@ -1,0 +1,67 @@
+version: "3.1"
+
+rules:
+- rule: Greet user
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: Handle business inquiry
+  steps:
+  - intent: business_inquiry
+  - action: action_set_business_info
+
+- rule: Show menu on inquiry
+  steps:
+  - intent: menu_inquiry
+  - action: action_show_recommendations
+
+- rule: Handle order customization
+  steps:
+  - intent: customize_order
+  - action: action_customize_order
+
+- rule: Check order status
+  steps:
+  - intent: track_order
+  - action: action_track_order
+
+- rule: Handle vegan requests
+  steps:
+  - intent: request_vegan_option
+  - action: action_show_vegan_options
+
+- rule: Handle price inquiries
+  steps:
+  - intent: ask_price
+  - action: action_show_price
+
+- rule: Handle ingredient inquiries
+  steps:
+  - intent: ask_ingredients
+  - action: action_show_ingredients
+
+- rule: Handle spice level inquiries
+  steps:
+  - intent: ask_spicy
+  - action: utter_spice_levels
+
+- rule: Handle feedback
+  steps:
+  - intent: give_feedback
+  - action: action_handle_feedback
+
+- rule: Handle reservation requests
+  steps:
+  - intent: make_reservation
+  - action: action_handle_reservation
+
+- rule: Handle recommendation requests
+  steps:
+  - intent: ask_recommendations
+  - action: action_show_recommendations
+
+- rule: Fallback
+  steps:
+  - intent: nlu_fallback
+  - action: action_default_fallback

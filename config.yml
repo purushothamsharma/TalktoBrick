@@ -1,0 +1,57 @@
+recipe: default.v1
+
+language: en
+
+pipeline:
+  - name: "WhitespaceTokenizer"
+  - name: "RegexFeaturizer"
+  - name: "LexicalSyntacticFeaturizer"
+  - name: "CountVectorsFeaturizer"
+  - name: "CountVectorsFeaturizer"
+    analyzer: "char_wb"
+    min_ngram: 1
+    max_ngram: 4
+  - name: "DIETClassifier"
+    epochs: 100
+    constrain_similarities: true
+    model_confidence: "softmax"
+    ranking_length: 5
+    use_masked_language_model: true
+    transformer_size: 256
+    number_of_transformer_layers: 2
+    number_of_attention_heads: 4
+    hidden_layers_sizes: {"text": [256, 128]}
+  - name: "EntitySynonymMapper"
+  - name: "ResponseSelector"
+    epochs: 100
+    constrain_similarities: true
+    use_masked_language_model: true
+    evaluate_every_number_of_epochs: 20
+    evaluate_on_number_of_examples: 1000
+  - name: "FallbackClassifier"
+    threshold: 0.3
+    ambiguity_threshold: 0.1
+
+policies:
+  - name: RulePolicy
+    core_fallback_threshold: 0.3
+    core_fallback_action_name: "action_default_fallback"
+    enable_fallback_prediction: true
+  - name: UnexpecTEDIntentPolicy
+    max_history: 5
+    epochs: 100
+    constrain_similarities: true
+    model_confidence: "softmax"
+  - name: TEDPolicy
+    max_history: 5
+    epochs: 100
+    constrain_similarities: true
+    model_confidence: "softmax"
+    transformer_size: 128
+    number_of_transformer_layers: 1
+    number_of_attention_heads: 4
+    use_masked_language_model: true
+    hidden_layers_sizes: {"dialogue": [256, 128]}
+  - name: MemoizationPolicy
+    max_history: 5
+    lookup_tables: true

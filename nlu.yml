@@ -1,0 +1,238 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - hola
+    - namaste
+    - buenos días
+    - buenas tardes
+    - hi brick
+    - hello brick
+    - welcome to brick
+    - greetings
+    - good afternoon
+    - hey there
+    - hi there
+    - pleasure to meet you
+
+- intent: goodbye
+  examples: |
+    - goodbye
+    - bye
+    - see you later
+    - good night
+    - bye bye
+    - have a good day
+    - see you around
+    - catch you later
+    - hasta luego
+    - adiós
+    - take care
+    - farewell
+
+- intent: order_food
+  examples: |
+    - I want to order [dosa](food_item)
+    - can I get a [masala dosa](food_item)
+    - I'd like to order [biryani](food_item)
+    - give me [2](quantity) [tacos](food_item)
+    - I want [3](quantity) [samosas](food_item)
+    - order [chicken wings](food_item)
+    - quiero [tacos](food_item) por favor
+    - dame [2](quantity) [burritos](food_item)
+    - I'll take a [pizza](food_item)
+    - let me get some [pad thai](food_item)
+    - need [3](quantity) [spring rolls](food_item)
+    - can I order [pasta](food_item)
+    - want to try the [risotto](food_item)
+    - give me [chow mein](food_item)
+    - I'd like [butter chicken](food_item)
+    - could I have the [steak](food_item)
+    - I'll have the [salmon](food_item)
+    - bring me your finest [wine](food_item)
+    - what's your signature [dish](food_item)?
+    - chef's recommendation for [main course](food_item)
+    - special of the day
+    - house specialties
+    - tasting menu please
+    - wine pairing suggestions
+    - what's fresh today?
+
+- intent: customize_order
+  examples: |
+    - make it [spicy](customization)
+    - [no onions](customization) please
+    - can I add [extra cheese](customization)
+    - [gluten free](dietary_restriction) option
+    - I want it [medium rare](customization)
+    - [vegetarian](dietary_restriction) version
+    - with [extra sauce](customization)
+    - [without tomatoes](customization)
+    - [sin cebolla](customization) por favor
+    - make it [extra hot](customization)
+    - [mild](customization) please
+    - [dairy free](dietary_restriction) if possible
+    - [vegan](dietary_restriction) option available?
+    - can you make it [halal](dietary_restriction)?
+    - [kosher](dietary_restriction) options?
+    - cooked [well done](customization)
+    - [rare](customization) temperature
+    - [blue cheese](customization) on the side
+    - [truffle](customization) addition
+    - [caviar](customization) supplement
+    - [wine pairing](customization) suggestion
+    - special [plating](customization) request
+    - [birthday](customization) presentation
+    - [anniversary](customization) special
+
+- intent: ask_ingredients
+  examples: |
+    - what's in the [dosa](food_item)?
+    - ingredients in [biryani](food_item)
+    - what comes in the [tacos](food_item)?
+    - does [pizza](food_item) have [cheese](ingredient)?
+    - is there [meat](ingredient) in this?
+    - any [nuts](ingredient) in this dish?
+    - ¿qué tiene los [tacos](food_item)?
+    - what's inside the [samosas](food_item)?
+    - ingredients for [pad thai](food_item)
+    - what's in your [curry](food_item)?
+    - tell me about the [sauce](ingredient)
+    - is it made with [local](ingredient) ingredients?
+    - source of the [seafood](ingredient)?
+    - wine region information
+    - seasonal ingredients
+    - farm partnerships
+    - artisanal producers
+    - house-made components
+
+- intent: ask_spicy
+  examples: |
+    - how spicy is it?
+    - is it very hot?
+    - can I get it mild?
+    - what's the spice level?
+    - ¿qué tan picante es?
+    - is [biryani](food_item) spicy?
+    - can you make it less spicy?
+    - spice level for [curry](food_item)?
+    - how hot is the [pad thai](food_item)?
+    - heat scale
+    - chilies used
+    - adjustable spiciness
+    - traditional spice level
+    - mild option available?
+    - extra spicy possible?
+
+- intent: request_vegan_option
+  examples: |
+    - do you have vegan options?
+    - what's vegetarian here?
+    - show me plant-based dishes
+    - any vegan [pizza](food_item)?
+    - vegetarian [tacos](food_item)?
+    - ¿tienen opciones vegetarianas?
+    - vegan [curry](food_item) available?
+    - plant-based alternatives?
+    - dairy-free options?
+    - gluten-free menu
+    - keto-friendly dishes
+    - paleo options
+    - low-carb alternatives
+    - organic selections
+    - farm-to-table options
+
+- intent: ask_price
+  examples: |
+    - how much is the [dosa](food_item)?
+    - price for [biryani](food_item)
+    - what's the cost of [tacos](food_item)?
+    - ¿cuánto cuesta?
+    - how much for [2](quantity) [pizzas](food_item)?
+    - price of [pad thai](food_item)?
+    - cost of [samosas](food_item)?
+    - wine list prices
+    - tasting menu cost
+    - prix fixe options
+    - special occasion packages
+    - group dining rates
+    - private dining pricing
+    - chef's table experience
+
+- intent: track_order
+  examples: |
+    - where's my order?
+    - is my food ready?
+    - how long until my order?
+    - ¿dónde está mi orden?
+    - order status
+    - check my order
+    - when will I get my food?
+    - is it ready yet?
+    - course timing
+    - next dish arrival
+    - wine service timing
+    - dessert preparation
+    - kitchen status update
+    - service progress
+
+- intent: give_feedback
+  examples: |
+    - the food was great
+    - excellent service
+    - food was too spicy
+    - order was late
+    - everything was perfect
+    - la comida estaba deliciosa
+    - very good experience
+    - needs improvement
+    - amazing food
+    - outstanding wine selection
+    - beautiful presentation
+    - attentive service
+    - ambiance feedback
+    - sommelier recommendation
+    - chef compliments
+
+- intent: make_reservation
+  examples: |
+    - I'd like to make a reservation
+    - book a table
+    - table for [4](party_size) tonight
+    - reservation for [tomorrow](date)
+    - any availability this [weekend](date)?
+    - private dining room
+    - special occasion booking
+    - chef's table request
+    - wine room seating
+    - outdoor terrace
+    - quiet corner table
+    - window seating preferred
+    - birthday celebration
+    - business dinner booking
+    - anniversary arrangement
+
+- intent: ask_recommendations
+  examples: |
+    - what do you recommend?
+    - chef's specialties
+    - popular dishes
+    - wine pairing suggestions
+    - best sellers
+    - seasonal recommendations
+    - signature cocktails
+    - house favorites
+    - tasting menu highlights
+    - special occasion dishes
+    - local specialties
+    - traditional favorites
+    - modern interpretations
+    - fusion creations
+    - innovative dishes

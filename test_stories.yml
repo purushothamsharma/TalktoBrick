@@ -1,0 +1,71 @@
+version: "3.1"
+
+stories:
+- story: Complete order flow
+  steps:
+  - user: |
+      hello
+    intent: greet
+  - action: utter_greet
+  - user: |
+      what do you recommend?
+    intent: ask_recommendations
+  - action: action_show_recommendations
+  - user: |
+      I'll have the ribeye steak
+    intent: order_food
+    entities:
+    - food_item: ribeye steak
+  - action: action_process_order
+  - user: |
+      make it medium rare
+    intent: customize_order
+    entities:
+    - customization: medium rare
+  - action: action_customize_order
+  - user: |
+      what wine goes well with that?
+    intent: ask_recommendations
+  - action: action_suggest_wine
+  - user: |
+      perfect, I'll take that
+    intent: affirm
+  - action: action_confirm_order
+
+- story: Dietary restrictions flow
+  steps:
+  - user: |
+      do you have vegan options?
+    intent: request_vegan_option
+  - action: action_show_vegan_options
+  - user: |
+      what's in the quinoa bowl?
+    intent: ask_ingredients
+    entities:
+    - food_item: quinoa bowl
+  - action: action_show_ingredients
+  - user: |
+      I'll try that
+    intent: order_food
+    entities:
+    - food_item: quinoa bowl
+  - action: action_process_order
+
+- story: Price inquiry and feedback
+  steps:
+  - user: |
+      how much is the wagyu?
+    intent: ask_price
+    entities:
+    - food_item: wagyu
+  - action: action_show_price
+  - user: |
+      that's quite expensive
+    intent: give_feedback
+  - action: action_handle_feedback
+  - user: |
+      what makes it special?
+    intent: ask_ingredients
+    entities:
+    - food_item: wagyu
+  - action: action_show_ingredients

@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  body {
+    @apply bg-surface-50 text-brick-950 font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold tracking-wide;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-brick-500 text-white px-6 py-3 rounded-2xl 
+           border border-transparent hover:border-gold-500
+           shadow-luxury hover:shadow-luxury-xl;
+  }
+
+  .btn-outline {
+    @apply border-2 border-brick-500 text-brick-500 px-6 py-3 rounded-2xl
+           hover:bg-surface-50 shadow-luxury-inner hover:shadow-luxury-xl;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-luxury p-8
+           border border-surface-200
+           hover:shadow-luxury-xl;
+  }
+
+  .card-lg {
+    @apply card hover:translate-y-[-4px];
+  }
+
+  .nav-link {
+    @apply text-brick-500 hover:text-gold-500 
+           transition-colors duration-300;
+  }
+
+  .nav-item {
+    @apply block px-4 py-2 text-brick-950 hover:bg-surface-50 hover:text-brick-600
+           transition-colors duration-300;
+  }
+
+  .input-field {
+    @apply w-full px-6 py-3 rounded-2xl
+           border-2 border-surface-200
+           focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20
+           outline-none bg-white placeholder:text-brick-950/40;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-surface-50;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-surface-300 rounded-full hover:bg-surface-400;
+}
